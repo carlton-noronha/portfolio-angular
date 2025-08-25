@@ -1,0 +1,14 @@
+<header class="w-full h-16 bg-transparent backdrop-blur-sm fixed px-4">
+  <nav class="h-full w-full flex items-center">
+    <span class="flex-auto"></span>
+    <ul class="flex gap-4">
+      @for(menuItem of menuItems; track menuItem.routePath; let first = $first) { @if(first) {
+      <li class="text-neutral-300">
+        <a [routerLink]="[menuItem.routePath]" routerLinkActive="text-gray-400"
+          >{{ menuItem.text }}</a
+        >
+      </li>
+      } }
+    </ul>
+  </nav>
+</header>
