@@ -15,8 +15,8 @@ export class Home implements AfterViewInit {
     this.typeDesignation(this.designationsEl().nativeElement, this.designations);
   }
 
-  typeDesignation(
-    node: HTMLParagraphElement,
+  typeDesignation<T extends HTMLElement>(
+    node: T,
     designations: string[],
     opts: { typingSpeed: number; deleteSpeed: number; delayBetweenTexts: number } = {
       typingSpeed: 100,

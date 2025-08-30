@@ -1,14 +1,16 @@
 <div
-  class="h-full w-full p-24 flex flex-wrap flex-row gap-10 items-center overflow-x-scroll"
+  class="max-w-7xl h-full my-0 mx-auto p-4 gap-4 flex flex-col justify-center lg:flex-wrap lg:flex-row items-center overflow-y-scroll"
   aria-label="Brief introductory information"
 >
-  <section class="text-8xl text-neutral-300" aria-label="Full name and designation">
+  <section class="text-4xl md:text-7xl text-neutral-300" aria-label="Full name and designation">
     <p>Hi, I'm</p>
     <p>Carlton Noronha</p>
-    <p #designations class="text-2xl blinking-underscore"></p>
+    <p #designations class="text-base md:text-xl blinking-underscore"></p>
   </section>
   <section aria-label="Photo">
-    <div class="h-75 w-75 rounded-full border-10 border-neutral-300 overflow-hidden">
+    <div
+      class="h-50 w-50 md:h-75 md:w-75 rounded-full border-10 border-neutral-300 overflow-hidden"
+    >
       <img src="carlton.png" class="w-full h-full object-cover" />
     </div>
   </section>
