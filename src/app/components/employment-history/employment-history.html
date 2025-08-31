@@ -1,0 +1,38 @@
+<ng-template
+  #employmentHistoryHeader
+  let-organization="organization"
+  let-designation="designation"
+  let-timeline="timeline"
+>
+  <div class="w-full flex flex-col items-center gap-2">
+    <h4>{{ organization }}</h4>
+    <p>{{ designation }}</p>
+    <p>{{ timeline }}</p>
+  </div>
+</ng-template>
+<ng-template #employmentHistoryBody let-data="data">
+  <ul>
+    @for(item of data; track item) {
+    <li>{{ data }}</li>
+    }
+  </ul>
+</ng-template>
+
+<section aria-label="Employment history graph" class="w-full h-full">
+  <p class="relative text-neutral-50 left-[38%] right-[38%] text-3xl">My Employment History</p>
+  <div class="relative h-full w-0.5 bg-neutral-50 left-1/2 right-1/2"></div>
+  @for(data of employmentData; track data.headerData.timeline; let index = $index; let even = $even)
+  {
+  <div
+    class="bg-neutral-50 w-[5%] h-0.5 absolute {{ even ? 'right-2/4' : 'left-2/4' }} {{ topClasses[index] }}"
+  >
+    <app-card
+      [header]="employmentHistoryHeader"
+      [body]="employmentHistoryBody"
+      [headerData]="data.headerData"
+      [bodyData]="data.bodyData"
+      class="absolute {{ even ? 'left-[-550%]' : 'right-[-550%]' }}"
+    />
+  </div>
+  }
+</section>

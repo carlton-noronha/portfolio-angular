@@ -1,0 +1,9 @@
+<div
+  class="bg-neutral-50"
+  [ngStyle]="{
+  'width': width()
+  }"
+>
+  <ng-container [ngTemplateOutlet]="header()" [ngTemplateOutletContext]="headerData()" />
+  <ng-container [ngTemplateOutlet]="body()" [ngTemplateOutletContext]="bodyData()" />
+</div>
