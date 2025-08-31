@@ -19,7 +19,9 @@
 </ng-template>
 
 <section aria-label="Employment history graph" class="w-full h-full">
-  <p class="relative text-neutral-50 left-[38%] right-[38%] text-3xl">My Employment History</p>
+  <p class="w-full flex justify-center text-neutral-50 text-2xl sm:text-3xl flex-wrap items-center">
+    My Employment History
+  </p>
   <div class="relative h-full w-0.5 bg-neutral-50 left-1/2 right-1/2"></div>
   @for(data of employmentData; track data.headerData.timeline; let index = $index; let even = $even)
   {
@@ -31,7 +33,7 @@
       [body]="employmentHistoryBody"
       [headerData]="data.headerData"
       [bodyData]="data.bodyData"
-      class="absolute {{ even ? 'left-[-550%]' : 'right-[-550%]' }}"
+      class="absolute {{ even ? 'right-[100%]' : 'left-[100%]' }}"
     />
   </div>
   }
