@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, viewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, viewChild } from '@angular/core';
 import { take, timer } from 'rxjs';
 
 @Component({
@@ -7,7 +7,8 @@ import { take, timer } from 'rxjs';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home implements AfterViewInit {
+export class Home implements AfterViewInit, OnDestroy {
+  isCancelled = false;
   designationsEl = viewChild.required<ElementRef<HTMLParagraphElement>>('designations');
   designations = ['Consultant @ Deloitte USI', 'Ex-LTIMindtree'];
 
@@ -28,11 +29,15 @@ export class Home implements AfterViewInit {
       throw new Error('Paramter designations should have a minimum length of one.');
     }
 
-    function _typeDesignation(
+    const _typeDesignation = (
       _currentDesignationIdx: number = 0,
       _charIdx: number = 0,
       _isDeleting: boolean = false,
-    ) {
+    ) => {
+      if (this.isCancelled) {
+        return;
+      }
+
       if (_isDeleting) {
         --_charIdx;
         const text = designations[_currentDesignationIdx].substring(0, _charIdx);
@@ -70,8 +75,12 @@ export class Home implements AfterViewInit {
             });
         }
       }
-    }
+    };
 
     _typeDesignation();
+  }
+
+  ngOnDestroy(): void {
+    this.isCancelled = true;
   }
 }
