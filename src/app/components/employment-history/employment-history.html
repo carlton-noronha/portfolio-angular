@@ -22,18 +22,28 @@
   <p class="w-full flex justify-center text-neutral-50 text-2xl sm:text-3xl flex-wrap items-center">
     My Employment History
   </p>
-  <div class="relative h-[1500px] w-1 bg-neutral-50 left-1/2 right-1/2 rounded-xs"></div>
+  <div class="relative h-[1800px] w-1 bg-neutral-50 left-1/2 right-1/2 rounded-xs"></div>
   @for(data of employmentData; track data.headerData.timeline; let index = $index; let even = $even)
   {
   <div
-    class="bg-neutral-50 w-[5%] h-0.5 absolute {{ even ? 'right-2/4' : 'left-2/4' }} {{ topClasses[index] }} opacity-0"
+    class="{{ topClasses[index] }}"
+    [ngClass]="{
+    'bg-neutral-50 w-[5%] h-0.5 absolute opacity-0 duration-500 ease-in transition-opacity': true,
+    'right-2/4': even,
+    'left-2/4': !even,
+    }"
   >
     <app-card
       [header]="employmentHistoryHeader"
       [body]="employmentHistoryBody"
       [headerData]="data.headerData"
       [bodyData]="data.bodyData"
-      class="absolute {{ even ? 'right-[100%]' : 'left-[100%]' }} -top-5"
+      #card
+      [ngClass]="{
+      'absolute -top-5 opacity-0 duration-1000 ease-in transition-opacity': true,
+      'right-[100%]': even,
+      'left-[100%]': !even,
+      }"
     />
   </div>
   }

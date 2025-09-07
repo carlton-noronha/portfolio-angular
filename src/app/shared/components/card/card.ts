@@ -1,5 +1,5 @@
 import { NgStyle, NgTemplateOutlet } from '@angular/common';
-import { Component, input, TemplateRef } from '@angular/core';
+import { Component, ElementRef, input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -13,4 +13,10 @@ export class Card {
   body = input.required<TemplateRef<any>>();
   bodyData = input<any>();
   width = input<string>('400px');
+
+  constructor(private readonly elRef: ElementRef<HTMLElement>) {}
+
+  getElRef(): HTMLElement {
+    return this.elRef.nativeElement;
+  }
 }
