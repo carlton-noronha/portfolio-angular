@@ -9,6 +9,6 @@ import { exmploymentDataList } from '../../shared/constants';
   styleUrl: './employment-history.css',
 })
 export class EmploymentHistory {
-  topClasses = ['top-[20%]', 'top-[50%]', 'top-[80%]', 'top-[150%]'];
+  topClasses = ['top-[200px]', 'top-[500px]', 'top-[800px]', 'top-[1300px]'];
   employmentData = exmploymentDataList;
 }
