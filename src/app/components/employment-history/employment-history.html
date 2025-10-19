@@ -46,5 +46,47 @@
       }"
     />
   </div>
-  }
+  } }
+  <div class="py-16 flex justify-center flex-col gap-y-4 md:flex-row md:gap-y-0 md:gap-x-16">
+    <p class="text-neutral-50 text-2xl sm:text-3xl">My Employment History</p>
+
+    <div class="flex flex-col">
+      @for(data of employmentData; track data.headerData.timeline; let index = $index; let even =
+      $even; let first = $first; let last = $last) {
+      <div class="flex gap-x-4">
+        <div class="h-full flex flex-col gap-y-1 items-center">
+          <div
+            class="h-[50%] w-0.5 bg-neutral-50"
+            [ngClass]="{
+            'invisible': first
+            }"
+          ></div>
+          <div
+            class="h-4 w-4 rounded-full"
+            [ngClass]="{
+            'bg-neutral-50': first,
+            'border-neutral-50 border-1': !first
+            }"
+          ></div>
+          <div
+            class="h-[50%] w-0.5 bg-neutral-50"
+            [ngClass]="{
+            'invisible': last
+            }"
+          ></div>
+        </div>
+        <div class="py-2">
+          <app-card
+            [header]="employmentHistoryHeader"
+            [body]="employmentHistoryBody"
+            [headerData]="data.headerData"
+            [bodyData]="{ data: [] }"
+            #card
+            class="opacity-0 duration-1000 ease-in transition-opacity"
+          />
+        </div>
+      </div>
+      }
+    </div>
+  </div>
 </section>

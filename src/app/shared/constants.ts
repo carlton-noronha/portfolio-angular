@@ -37,8 +37,9 @@ export const exmploymentDataList: EmploymentData[] = [
   {
     headerData: {
       organization: 'LTIMindtree',
-      designation: 'Software Engineer',
-      timeline: 'May 2023 - January 2025',
+      designation: 'Senior Software Engineer',
+      timeline: 'O 2023 - January 2025',
+      //timeline: 'May 2023 - January 2025',
     },
     bodyData: {
       data: [
@@ -54,7 +55,7 @@ export const exmploymentDataList: EmploymentData[] = [
   {
     headerData: {
       organization: 'LTIMindtree',
-      designation: 'Senior Software Engineer',
+      designation: 'Software Engineer',
       timeline: 'December 2021 - March 2023',
     },
     bodyData: {
