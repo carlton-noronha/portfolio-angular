@@ -1,7 +1,7 @@
 import { EmploymentData, MenuItem } from './app-types';
 
 export const routes = {
-  EMPLOYMENT_HISTORY: 'employment-history',
+  EXPERIENCE: 'experience',
 };
 
 export const menuItems: MenuItem[] = [
@@ -10,17 +10,17 @@ export const menuItems: MenuItem[] = [
     text: 'Home',
   },
   {
-    route: `/${routes.EMPLOYMENT_HISTORY}`,
-    text: 'Employment History',
+    route: `/${routes.EXPERIENCE}`,
+    text: 'Experience',
   },
-  // {
-  //   routePath: 'personal-projects',
-  //   text: 'Personal Projects',
-  // },
-  // {
-  //   routePath: '/contact-me',
-  //   text: 'Contact Me',
-  // },
+  {
+    route: '/personal-projects',
+    text: 'Personal Projects',
+  },
+  {
+    route: '/contact-me',
+    text: 'Contact Me',
+  },
 ];
 
 export const exmploymentDataList: EmploymentData[] = [
@@ -31,14 +31,14 @@ export const exmploymentDataList: EmploymentData[] = [
       timeline: 'Febuary 2025 - Present',
     },
     bodyData: {
-      data: ['Test'],
+      data: [],
     },
   },
   {
     headerData: {
       organization: 'LTIMindtree',
       designation: 'Senior Software Engineer',
-      timeline: 'O 2023 - January 2025',
+      timeline: 'Oct 2024 - January 2025',
       //timeline: 'May 2023 - January 2025',
     },
     bodyData: {

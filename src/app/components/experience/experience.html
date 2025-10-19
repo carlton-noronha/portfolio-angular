@@ -19,6 +19,7 @@
 </ng-template>
 
 <section aria-label="Employment history graph" class="w-full h-full">
+  @if(false) {
   <p class="w-full flex justify-center text-neutral-50 text-2xl sm:text-3xl flex-wrap items-center">
     My Employment History
   </p>
@@ -28,9 +29,9 @@
   <div
     class="{{ topClasses[index] }}"
     [ngClass]="{
-    'bg-neutral-50 w-[5%] h-0.5 absolute opacity-0 duration-500 ease-in transition-opacity': true,
-    'right-2/4': even,
-    'left-2/4': !even,
+    'bg-transparent border-1 border-white w-6 h-6 rounded-full absolute opacity-0 duration-500 ease-in transition-opacity mix-blend-exclusion': true,
+    'right-[48.75%]': even,
+    'left-[49%]': !even,
     }"
   >
     <app-card
@@ -47,16 +48,18 @@
     />
   </div>
   } }
-  <div class="py-16 flex justify-center flex-col gap-y-4 md:flex-row md:gap-y-0 md:gap-x-16">
-    <p class="text-neutral-50 text-2xl sm:text-3xl">My Employment History</p>
+  <div
+    class="py-8 flex justify-center items-center flex-col gap-y-4 md:py-8 md:flex-row md:gap-y-0 md:gap-x-16 md:items-start"
+  >
+    <p class="text-neutral-50 text-2xl md:text-3xl h-full">Experience</p>
 
-    <div class="flex flex-col">
+    <div class="h-full flex flex-col">
       @for(data of employmentData; track data.headerData.timeline; let index = $index; let even =
       $even; let first = $first; let last = $last) {
-      <div class="flex gap-x-4">
-        <div class="h-full flex flex-col gap-y-1 items-center">
+      <div class="md:flex md:gap-x-4 md:items-center">
+        <div class="hidden md:flex md:flex-col md:gap-y-2 md:items-center">
           <div
-            class="h-[50%] w-0.5 bg-neutral-50"
+            class="h-9 w-0.5 bg-neutral-50"
             [ngClass]="{
             'invisible': first
             }"
@@ -69,7 +72,7 @@
             }"
           ></div>
           <div
-            class="h-[50%] w-0.5 bg-neutral-50"
+            class="h-9 w-0.5 bg-neutral-50"
             [ngClass]="{
             'invisible': last
             }"

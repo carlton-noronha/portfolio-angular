@@ -9,8 +9,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: `${ROUTES.EMPLOYMENT_HISTORY}`,
-    loadComponent: () =>
-      import('./components/employment-history/employment-history').then((m) => m.EmploymentHistory),
+    path: `${ROUTES.EXPERIENCE}`,
+    loadComponent: () => import('./components/experience/experience').then((m) => m.Experience),
   },
 ];

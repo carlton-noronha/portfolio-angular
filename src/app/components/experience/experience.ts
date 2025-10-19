@@ -1,20 +1,15 @@
-import {
-  AfterViewInit,
-  Component,
-  OnDestroy,
-  viewChildren,
-} from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, viewChildren } from '@angular/core';
 import { Card } from '../../shared/components/card/card';
 import { exmploymentDataList } from '../../shared/constants';
 import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-employment-history',
+  selector: 'app-experience',
   imports: [Card, NgClass],
-  templateUrl: './employment-history.html',
-  styleUrl: './employment-history.css',
+  templateUrl: './experience.html',
+  styleUrl: './experience.css',
 })
-export class EmploymentHistory implements AfterViewInit, OnDestroy {
+export class Experience implements AfterViewInit, OnDestroy {
   topClasses = ['top-[200px]', 'top-[350px]', 'top-[1025px]', 'top-[1475px]'];
   employmentData = exmploymentDataList;
   braches = viewChildren<Card>('card');
@@ -30,7 +25,7 @@ export class EmploymentHistory implements AfterViewInit, OnDestroy {
   createIntersectionObserver() {
     return new IntersectionObserver(
       (entries, observer) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.parentElement!.classList.add('opacity-100');
             entry.target.classList.add('opacity-100');
