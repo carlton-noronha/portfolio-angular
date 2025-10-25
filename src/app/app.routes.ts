@@ -5,6 +5,11 @@ import { routes as ROUTES } from './shared/constants';
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: `/${ROUTES.HOME}`,
+    pathMatch: 'full',
+  },
+  {
+    path: `${ROUTES.HOME}`,
     component: Home,
     pathMatch: 'full',
   },

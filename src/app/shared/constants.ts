@@ -1,12 +1,13 @@
 import { EmploymentData, MenuItem } from './app-types';
 
 export const routes = {
+  HOME: 'home',
   EXPERIENCE: 'experience',
 };
 
 export const menuItems: MenuItem[] = [
   {
-    route: '',
+    route: `/${routes.HOME}`,
     text: 'Home',
   },
   {

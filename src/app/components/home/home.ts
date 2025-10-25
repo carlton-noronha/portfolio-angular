@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, viewChild } from '@angular/core';
 import { take, timer } from 'rxjs';
+import { Theme } from '../../shared/services/theme';
+import { BaseComponent } from '../../shared/components/BaseComponent';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,14 @@ import { take, timer } from 'rxjs';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home implements AfterViewInit, OnDestroy {
+export class Home extends BaseComponent implements AfterViewInit, OnDestroy {
   isCancelled = false;
   designationsEl = viewChild.required<ElementRef<HTMLParagraphElement>>('designations');
   designations = ['Consultant @ Deloitte USI', 'Ex-LTIMindtree'];
+
+  constructor(private readonly themeService: Theme) {
+    super(themeService);
+  }
 
   ngAfterViewInit(): void {
     this.typeDesignation(this.designationsEl().nativeElement, this.designations);
