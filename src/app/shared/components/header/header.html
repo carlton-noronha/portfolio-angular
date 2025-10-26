@@ -1,5 +1,5 @@
 <header
-  class="w-full h-16 fixed z-100 flex justify-center items-center {{ themeStyles['bg-blue'] }} {{ themeStyles['text-main'] }}"
+  class="w-full h-16 fixed z-100 flex justify-center items-center {{ themeStyles['bg-secondary'] }} {{ themeStyles['text-main'] }}"
 >
   <nav class="md:hidden h-full w-full border-b-stone-800 border-b-1">
     <div class="h-full w-full flex items-center px-2 gap-x-2">
@@ -18,7 +18,7 @@
     </div>
     @if(isMenuOpened) {
     <ul
-      class="w-full fixed top-16 flex flex-col gap-2 p-2 {{ themeStyles['bg-blue'] }} {{ themeStyles['text-main'] }}"
+      class="w-full fixed top-16 flex flex-col gap-2 p-2 {{ themeStyles['bg-secondary'] }} {{ themeStyles['text-main'] }}"
     >
       @for(menuItem of menuItems; track menuItem.route) {
       <li>

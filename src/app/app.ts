@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, DOCUMENT, Inject, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, DOCUMENT, effect, Inject, Renderer2 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './shared/components/header/header';
 import { Theme } from './shared/services/theme';
@@ -17,10 +17,15 @@ export class App extends BaseComponent implements AfterViewInit {
     private readonly themeService: Theme,
   ) {
     super(themeService);
+    effect(() => {
+      const body = this.document.body;
+      console.log(this.prevThemeStyles['bg-main']);
+      if (this.prevThemeStyles['bg-main']) {
+        this.renderer.removeClass(body, this.prevThemeStyles['bg-main']);
+      }
+      this.renderer.addClass(body, this.themeStyles['bg-main']);
+    });
   }
 
-  ngAfterViewInit(): void {
-    const body = this.document.body;
-    this.renderer.addClass(body, this.themeStyles['bg-main']);
-  }
+  ngAfterViewInit(): void {}
 }

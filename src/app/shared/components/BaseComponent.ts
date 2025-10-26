@@ -14,4 +14,12 @@ export class BaseComponent {
   set themeMode(themeMode: ThemeMode) {
     this.theme.themeMode.set(themeMode);
   }
+
+  set prevThemeStyles(prevThemeStyles: { [x: string]: string }) {
+    this.theme.prevThemeStyle.set(prevThemeStyles);
+  }
+
+  get prevThemeStyles(): { [x: string]: string } {
+    return this.theme.prevThemeStyle();
+  }
 }

@@ -33,6 +33,8 @@ export class Header extends BaseComponent {
   }
 
   onChangeTheme(themeMode: ThemeMode) {
+    this.prevThemeStyles = this.themeStyles;
+
     if (themeMode === 'dark') {
       this.themeMode = 'light';
     }
