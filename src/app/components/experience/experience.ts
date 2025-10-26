@@ -2,6 +2,8 @@ import { AfterViewInit, Component, OnDestroy, viewChildren } from '@angular/core
 import { Card } from '../../shared/components/card/card';
 import { exmploymentDataList } from '../../shared/constants';
 import { NgClass } from '@angular/common';
+import { Theme } from '../../shared/services/theme';
+import { BaseComponent } from '../../shared/components/BaseComponent';
 
 @Component({
   selector: 'app-experience',
@@ -9,11 +11,15 @@ import { NgClass } from '@angular/common';
   templateUrl: './experience.html',
   styleUrl: './experience.css',
 })
-export class Experience implements AfterViewInit, OnDestroy {
+export class Experience extends BaseComponent implements AfterViewInit, OnDestroy {
   topClasses = ['top-[200px]', 'top-[350px]', 'top-[1025px]', 'top-[1475px]'];
   employmentData = exmploymentDataList;
   braches = viewChildren<Card>('card');
   observer?: IntersectionObserver;
+
+  constructor(private readonly themeService: Theme) {
+    super(themeService);
+  }
 
   ngAfterViewInit(): void {
     this.observer = this.createIntersectionObserver();
@@ -39,6 +45,13 @@ export class Experience implements AfterViewInit, OnDestroy {
         threshold: 0.1,
       },
     );
+  }
+
+  getVerticalBarStyles(first: boolean) {
+    return {
+      [this.themeStyles['bg-secondary']]: first,
+      [`${this.themeStyles['border-secondary']} border-1`]: !first,
+    };
   }
 
   ngOnDestroy(): void {

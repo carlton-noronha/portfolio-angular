@@ -4,7 +4,7 @@
   let-designation="designation"
   let-timeline="timeline"
 >
-  <div class="w-full flex flex-col items-center gap-2">
+  <div class="w-full flex flex-col items-center gap-2 {{ themeStyles['text-main'] }}">
     <h4>{{ organization }}</h4>
     <p>{{ designation }}</p>
     <p>{{ timeline }}</p>
@@ -19,39 +19,10 @@
 </ng-template>
 
 <section aria-label="Employment history graph" class="w-full h-full">
-  @if(false) {
-  <p class="w-full flex justify-center text-neutral-50 text-2xl sm:text-3xl flex-wrap items-center">
-    My Employment History
-  </p>
-  <div class="relative h-[1800px] w-1 bg-neutral-50 left-1/2 right-1/2 rounded-xs"></div>
-  @for(data of employmentData; track data.headerData.timeline; let index = $index; let even = $even)
-  {
-  <div
-    class="{{ topClasses[index] }}"
-    [ngClass]="{
-    'bg-transparent border-1 border-white w-6 h-6 rounded-full absolute opacity-0 duration-500 ease-in transition-opacity mix-blend-exclusion': true,
-    'right-[48.75%]': even,
-    'left-[49%]': !even,
-    }"
-  >
-    <app-card
-      [header]="employmentHistoryHeader"
-      [body]="employmentHistoryBody"
-      [headerData]="data.headerData"
-      [bodyData]="data.bodyData"
-      #card
-      [ngClass]="{
-      'absolute -top-5 opacity-0 duration-1000 ease-in transition-opacity': true,
-      'right-[100%]': even,
-      'left-[100%]': !even,
-      }"
-    />
-  </div>
-  } }
   <div
     class="py-8 flex justify-center items-center flex-col gap-y-4 md:py-8 md:flex-row md:gap-y-0 md:gap-x-16 md:items-start"
   >
-    <p class="text-neutral-50 text-2xl md:text-3xl h-full">Experience</p>
+    <p class="{{ themeStyles['text-secondary'] }} text-2xl md:text-3xl h-full">Experience</p>
 
     <div class="h-full flex flex-col">
       @for(data of employmentData; track data.headerData.timeline; let index = $index; let even =
@@ -59,20 +30,14 @@
       <div class="md:flex md:gap-x-4 md:items-center">
         <div class="hidden md:flex md:flex-col md:gap-y-2 md:items-center">
           <div
-            class="h-9 w-0.5 bg-neutral-50"
+            class="h-9 w-0.5 {{ themeStyles['bg-secondary'] }}"
             [ngClass]="{
             'invisible': first
             }"
           ></div>
+          <div class="h-4 w-4 rounded-full" [ngClass]="getVerticalBarStyles(first)"></div>
           <div
-            class="h-4 w-4 rounded-full"
-            [ngClass]="{
-            'bg-neutral-50': first,
-            'border-neutral-50 border-1': !first
-            }"
-          ></div>
-          <div
-            class="h-9 w-0.5 bg-neutral-50"
+            class="h-9 w-0.5 {{ themeStyles['bg-secondary'] }}"
             [ngClass]="{
             'invisible': last
             }"
